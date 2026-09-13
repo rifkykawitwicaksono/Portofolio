@@ -1,898 +1,707 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aditya Rahman — Portofolio Hukum</title>
-<meta name="description" content="Portofolio pribadi Aditya Rahman — pengacara muda, penyusun kontrak, dan peneliti hukum.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@200;300;400&family=Fira+Code:wght@400&display=swap">
+    <title>Portofolio | Mahasiswa Pertanian</title>
 
-<!-- CSS — untuk pisah ke style.css: cut isi <style> di bawah, paste ke style.css, ganti tag jadi <link rel="stylesheet" href="style.css"> -->
-<style>
-:root {
-  --bg:            #0a0a0a;
-  --text:          #ffffff;
-  --text-soft:     #dadada;
-  --text-mute:     rgba(255,255,255,0.5);
-  --accent:        rgba(200,170,130, 1);
-  --accent-soft:   rgba(200,170,130, 0.25);
-  --line:          rgba(255,255,255,0.10);
-  --line-soft:     rgba(255,255,255,0.06);
-  --ease-quiet:    cubic-bezier(.22, 1, .36, 1);
-  --ease-precise:  cubic-bezier(.4, 0, .2, 1);
-  --ease-emphasis: cubic-bezier(.16, 1, .3, 1);
-  --container: 1400px;
-  --reading:    860px;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Inter', sans-serif;
-  font-weight: 300;
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
-::selection { background: var(--accent-soft); color: var(--text); }
+        html {
+            scroll-behavior: smooth;
+        }
 
-h1, h2, h3, h4 { font-family: 'EB Garamond', serif; font-weight: 400; line-height: 1.15; letter-spacing: -0.01em; }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f7f9f7;
+        }
 
-.eyebrow {
-  display: inline-block;
-  font: 400 11px/1 'Fira Code', monospace;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 2rem;
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 700ms var(--ease-quiet), transform 700ms var(--ease-quiet);
-}
-.eyebrow::after {
-  content: '';
-  display: inline-block;
-  width: 0; height: 1px;
-  margin-left: 0.75rem;
-  vertical-align: middle;
-  background: currentColor;
-  transition: width 800ms var(--ease-quiet) 400ms;
-}
-.is-in .eyebrow { opacity: 1; transform: none; transition-delay: 100ms; }
-.is-in .eyebrow::after { width: 2.5rem; }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-.mono { font-family: 'Fira Code', monospace; font-size: 12px; letter-spacing: 0.08em; color: var(--text-soft); }
+        /* NAVBAR */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #ffffff;
+            border-bottom: 1px solid #e5e5e5;
+        }
 
-section { padding: 8rem 2rem; position: relative; }
-.container { max-width: var(--container); margin: 0 auto; }
-.section-head { margin-bottom: 5rem; max-width: 900px; }
-.section-title {
-  font-size: clamp(2.25rem, 4vw, 3.25rem);
-  margin-bottom: 1.5rem;
-  max-width: 24ch;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1000ms var(--ease-quiet) 200ms, transform 1000ms var(--ease-quiet) 200ms;
-}
-.is-in .section-title { opacity: 1; transform: none; }
-.section-lede {
-  font-size: 1.05rem;
-  color: var(--text-soft);
-  max-width: 56ch;
-  line-height: 1.85;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1000ms var(--ease-quiet) 350ms, transform 1000ms var(--ease-quiet) 350ms;
-}
-.is-in .section-lede { opacity: 1; transform: none; }
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-/* NAVBAR */
-.nav {
-  position: fixed; top: 0; left: 0; right: 0;
-  z-index: 100;
-  padding: 1.25rem 2rem;
-  background: rgba(10, 10, 10, 0.6);
-  backdrop-filter: blur(14px) saturate(140%);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
-  border-bottom: 1px solid var(--line-soft);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  transition: padding 400ms var(--ease-quiet), background 400ms var(--ease-quiet);
-}
-.nav.scrolled { padding: 0.85rem 2rem; background: rgba(10, 10, 10, 0.85); }
-.nav-logo {
-  font-family: 'EB Garamond', serif;
-  font-size: 1.25rem;
-  letter-spacing: 0.02em;
-  color: var(--text);
-  text-decoration: none;
-  display: flex; align-items: center; gap: 0.4rem;
-}
-.nav-logo .dot { color: var(--accent); }
-.nav-logo .mono { font-size: 10px; margin-left: 0.5rem; }
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2e7d32;
+        }
 
-.nav-links { display: flex; gap: 2.5rem; list-style: none; }
-.nav-links a {
-  color: var(--text-soft);
-  text-decoration: none;
-  font-size: 12px;
-  font-family: 'Fira Code', monospace;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  transition: color 300ms var(--ease-quiet);
-  position: relative;
-  padding: 0.25rem 0;
-}
-.nav-links a:hover { color: var(--accent); }
-.nav-links a::after {
-  content: '';
-  position: absolute; left: 0; bottom: 0;
-  width: 0; height: 1px;
-  background: var(--accent);
-  transition: width 400ms var(--ease-quiet);
-}
-.nav-links a:hover::after { width: 100%; }
+        .nav-menu {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
 
-.nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; z-index: 101; }
-.nav-hamburger span { display: block; width: 24px; height: 1px; background: var(--text); transition: transform 400ms var(--ease-quiet), opacity 400ms var(--ease-quiet); }
-.nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-.nav-hamburger.open span:nth-child(2) { opacity: 0; }
-.nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+        .nav-menu a {
+            font-size: 14px;
+            color: #444;
+            transition: 0.3s;
+        }
 
-@media (max-width: 768px) {
-  .nav-links {
-    position: fixed; top: 0; right: 0;
-    width: 100%; height: 100vh;
-    background: var(--bg);
-    flex-direction: column;
-    justify-content: center; align-items: center;
-    gap: 2rem;
-    transform: translateX(100%);
-    transition: transform 500ms var(--ease-quiet);
-  }
-  .nav-links.open { transform: translateX(0); }
-  .nav-hamburger { display: flex; }
-  .nav-links a { font-size: 1.1rem; }
-}
+        .nav-menu a:hover {
+            color: #2e7d32;
+        }
 
-/* HERO */
-.hero { min-height: 100vh; padding: 10rem 2rem 6rem; display: flex; align-items: center; }
-.hero-inner { max-width: var(--container); margin: 0 auto; display: grid; grid-template-columns: 1.3fr 1fr; gap: 6rem; align-items: center; width: 100%; }
-.hero-eyebrow { margin-bottom: 3rem; }
-.hero-title {
-  font-size: clamp(3rem, 7vw, 5.5rem);
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.02em;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1000ms var(--ease-quiet) 200ms, transform 1000ms var(--ease-quiet) 200ms;
-}
-.is-in .hero-title { opacity: 1; transform: none; }
+        /* HERO */
+        .hero {
+            max-width: 1100px;
+            margin: auto;
+            padding: 80px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
 
-.hero-profession {
-  font-family: 'Fira Code', monospace;
-  font-size: 0.95rem;
-  letter-spacing: 0.15em;
-  color: var(--accent);
-  margin-bottom: 2rem;
-  text-transform: uppercase;
-  min-height: 1.5em;
-  display: flex;
-  align-items: center;
-}
-#professionText { white-space: nowrap; }
-.caret { display: inline-block; width: 8px; height: 1em; background: var(--accent); margin-left: 2px; transform: translateY(2px); animation: blink 1s steps(1) infinite; }
-.caret.is-hidden { display: none; }
-@keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
+        .hero-text {
+            flex: 1;
+        }
 
-.hero-description {
-  font-size: 1.05rem;
-  color: var(--text-soft);
-  max-width: 36em;
-  margin-bottom: 3rem;
-  line-height: 1.85;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 800ms var(--ease-quiet), transform 800ms var(--ease-quiet);
-}
-.hero-description.is-shown { opacity: 1; transform: none; }
+        .hero-text span {
+            color: #2e7d32;
+            font-weight: bold;
+        }
 
-.hero-cta {
-  display: inline-flex; align-items: center; gap: 0.75rem;
-  padding: 1rem 2rem;
-  border: 1px solid var(--line);
-  color: var(--text);
-  text-decoration: none;
-  font-family: 'Fira Code', monospace;
-  font-size: 12px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 800ms var(--ease-quiet) 200ms, transform 800ms var(--ease-quiet) 200ms, border-color 300ms, color 300ms;
-}
-.hero-cta.is-shown { opacity: 1; transform: none; }
-.hero-cta:hover { border-color: var(--accent); color: var(--accent); }
-.hero-cta-arrow { font-size: 1rem; transition: transform 400ms var(--ease-quiet); }
-.hero-cta:hover .hero-cta-arrow { transform: translateX(4px); }
+        .hero-text h1 {
+            font-size: 46px;
+            line-height: 1.2;
+            margin: 10px 0;
+            color: #222;
+        }
 
-.hero-photo {
-  position: relative;
-  aspect-ratio: 4/5;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  opacity: 0;
-  transform: scale(1.03);
-  transition: opacity 1200ms var(--ease-quiet) 400ms, transform 1200ms var(--ease-quiet) 400ms;
-}
-.is-in .hero-photo { opacity: 1; transform: none; }
-.hero-photo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(15%) contrast(1.05); }
-.hero-photo-meta {
-  position: absolute;
-  bottom: 1rem; left: 1rem; right: 1rem;
-  display: flex; justify-content: space-between;
-  font-family: 'Fira Code', monospace;
-  font-size: 10px;
-  letter-spacing: 0.15em;
-  color: var(--text);
-  mix-blend-mode: difference;
-}
+        .hero-text h2 {
+            font-size: 22px;
+            font-weight: normal;
+            color: #666;
+            margin-bottom: 20px;
+        }
 
-@media (max-width: 768px) {
-  .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
-  .hero { padding: 8rem 1.5rem 4rem; }
-  .hero-photo { aspect-ratio: 4/3; }
-}
+        .hero-info {
+            margin-top: 20px;
+            color: #555;
+        }
 
-/* ABOUT */
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
-.about-left { position: sticky; top: 8rem; }
-.about-right { display: flex; flex-direction: column; gap: 3rem; }
+        .hero-info p {
+            margin: 5px 0;
+        }
 
-.about-paragraph {
-  font-size: 1.05rem;
-  color: var(--text-soft);
-  line-height: 1.85;
-  margin-bottom: 2rem;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1000ms var(--ease-quiet), transform 1000ms var(--ease-quiet);
-  transition-delay: calc(var(--i, 0) * 100ms);
-}
-.about-grid.is-in .about-paragraph { opacity: 1; transform: none; }
+        .profile-photo {
+            width: 230px;
+            height: 230px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid #ffffff;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+        }
 
-.pull-quote { margin: 3rem 0 2rem; padding: 1.5rem 0 1.5rem 2rem; border-left: 2px solid var(--accent); }
-.pull-quote p { font-family: 'EB Garamond', serif; font-size: 1.4rem; font-style: italic; line-height: 1.5; color: var(--text); margin-bottom: 0.75rem; }
-.pull-quote cite { font-family: 'Fira Code', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--text-mute); font-style: normal; }
+        .button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 22px;
+            background: #2e7d32;
+            color: white;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
 
-.about-bio { display: grid; grid-template-columns: 140px 1fr; gap: 1.25rem 2rem; padding-top: 2rem; border-top: 1px solid var(--line); }
-.about-bio dt { font-family: 'Fira Code', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-mute); padding-top: 0.15em; }
-.about-bio dd { color: var(--text); font-size: 0.95rem; line-height: 1.65; }
+        .button:hover {
+            background: #1b5e20;
+        }
 
-.currently { padding-top: 2rem; border-top: 1px solid var(--line); }
-.currently-head { font-family: 'Fira Code', monospace; font-size: 11px; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 1.5rem; }
-.currently-item { display: grid; grid-template-columns: 100px 1fr; gap: 1.5rem; padding: 0.5rem 0; align-items: baseline; }
-.currently-label { font-family: 'Fira Code', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--text-mute); text-transform: uppercase; }
-.currently-value { font-family: 'EB Garamond', serif; font-size: 1.05rem; color: var(--text); line-height: 1.5; }
+        /* SECTION */
+        section {
+            padding: 70px 20px;
+        }
 
-@media (max-width: 768px) {
-  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .about-left { position: static; }
-  .about-bio { grid-template-columns: 1fr; gap: 0.5rem 0; }
-  .about-bio dt { padding-top: 1.5rem; }
-  .currently-item { grid-template-columns: 1fr; gap: 0.25rem; }
-}
+        .section-container {
+            max-width: 1000px;
+            margin: auto;
+        }
 
-/* SKILLS */
-.skills-grid { display: flex; flex-direction: column; gap: 4rem; }
-.skills-block { position: relative; }
-.skills-block-head { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 2rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
-.skills-block-num { font-family: 'Fira Code', monospace; font-size: 11px; color: var(--accent); letter-spacing: 0.15em; }
-.skills-block-title { font-family: 'EB Garamond', serif; font-size: 1.5rem; color: var(--text); }
-.skills-block-note { margin-left: auto; font-family: 'Fira Code', monospace; font-size: 10px; color: var(--text-mute); letter-spacing: 0.15em; text-transform: uppercase; }
-.skills-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0; }
-.skills-list li { position: relative; padding: 1.25rem 1.5rem 1.25rem 1.75rem; border-bottom: 1px solid var(--line-soft); transition: background 400ms var(--ease-quiet); }
-.skills-list li::before { content: ''; position: absolute; left: 0; top: 0; width: 2px; height: 0; background: var(--accent); transition: height 500ms var(--ease-quiet); }
-.skills-list li:hover::before { height: 100%; }
-.skills-list li:hover { background: rgba(200,170,130, 0.04); }
-.skill-name { display: block; font-family: 'EB Garamond', serif; font-size: 1.1rem; margin-bottom: 0.25rem; transition: color 400ms var(--ease-quiet); }
-.skills-list li:hover .skill-name { color: var(--accent); }
-.skill-years { font-family: 'Fira Code', monospace; font-size: 10px; color: var(--text-mute); letter-spacing: 0.15em; }
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
-@media (max-width: 768px) {
-  .skills-block-head { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
-  .skills-block-note { margin-left: 0; }
-}
+        .section-title h2 {
+            font-size: 30px;
+            color: #222;
+            margin-bottom: 8px;
+        }
 
-/* PORTFOLIO */
-.portfolio-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 5rem 3rem; }
-.portfolio-card { display: block; text-decoration: none; color: inherit; opacity: 0; transform: translateY(30px); transition: opacity 1000ms var(--ease-quiet), transform 1000ms var(--ease-quiet); transition-delay: calc(var(--i, 0) * 100ms); }
-.portfolio-grid.is-in .portfolio-card { opacity: 1; transform: none; }
+        .section-title p {
+            color: #777;
+            font-size: 14px;
+        }
 
-.portfolio-media { position: relative; aspect-ratio: 4/3; overflow: hidden; margin-bottom: 1.5rem; background: #1a1a1a; }
-.portfolio-media img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%) contrast(1.05); transform: scale(1.05); clip-path: inset(100% 0 0 0); transition: transform 1200ms var(--ease-quiet), clip-path 1200ms var(--ease-emphasis); transition-delay: calc(var(--i, 0) * 100ms); }
-.portfolio-grid.is-in .portfolio-media img { clip-path: inset(0 0 0 0); }
-.portfolio-card:hover .portfolio-media img { transform: scale(1.08); }
+        /* TENTANG */
+        .about {
+            background: white;
+        }
 
-.portfolio-meta { display: flex; justify-content: space-between; font-family: 'Fira Code', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-mute); margin-bottom: 0.75rem; }
-.portfolio-meta .accent { color: var(--accent); }
-.portfolio-title { font-size: 1.6rem; margin-bottom: 0.75rem; transition: color 400ms var(--ease-quiet); }
-.portfolio-card:hover .portfolio-title { color: var(--accent); }
-.portfolio-desc { font-size: 0.95rem; color: var(--text-soft); line-height: 1.7; margin-bottom: 1rem; }
-.portfolio-link { font-family: 'Fira Code', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text); display: inline-flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid var(--line); padding-bottom: 4px; transition: border-color 400ms, color 400ms; }
-.portfolio-card:hover .portfolio-link { border-color: var(--accent); color: var(--accent); }
-.portfolio-link span { transition: transform 400ms var(--ease-quiet); }
-.portfolio-card:hover .portfolio-link span { transform: translateX(4px); }
+        .about-text {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            color: #555;
+            font-size: 16px;
+        }
 
-@media (max-width: 768px) {
-  .portfolio-grid { grid-template-columns: 1fr; gap: 3rem; }
-}
+        /* PENDIDIKAN */
+        .education-card {
+            background: white;
+            padding: 25px;
+            border-left: 4px solid #2e7d32;
+            border-radius: 6px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+        }
 
-/* CONTACT */
-.contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: start; }
-.contact-methods { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
-.contact-method { display: grid; grid-template-columns: 120px 1fr auto; align-items: center; gap: 2rem; padding: 1.5rem 0; border-bottom: 1px solid var(--line-soft); text-decoration: none; color: inherit; position: relative; transition: padding-left 400ms var(--ease-quiet); }
-.contact-method::before { content: ''; position: absolute; left: 0; top: 0; width: 2px; height: 0; background: var(--accent); transition: height 500ms var(--ease-quiet); }
-.contact-method:hover::before { height: 100%; }
-.contact-method:hover { padding-left: 1rem; }
-.contact-method-label { font-family: 'Fira Code', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-mute); transition: color 400ms var(--ease-quiet); }
-.contact-method:hover .contact-method-label { color: var(--accent); }
-.contact-method-value { font-family: 'EB Garamond', serif; font-size: 1.15rem; transition: color 400ms var(--ease-quiet); }
-.contact-method:hover .contact-method-value { color: var(--accent); }
-.contact-method-arrow { color: var(--text-mute); transition: transform 400ms var(--ease-quiet), color 400ms; }
-.contact-method:hover .contact-method-arrow { transform: translateX(4px); color: var(--accent); }
+        .education-card h3 {
+            color: #222;
+            margin-bottom: 8px;
+        }
 
-.contact-aside { font-size: 1rem; color: var(--text-soft); line-height: 1.85; }
-.contact-aside p { margin-bottom: 1.5rem; }
-.contact-aside .signature { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--line); font-family: 'EB Garamond', serif; font-style: italic; color: var(--text); }
+        .education-card p {
+            color: #666;
+            margin: 4px 0;
+        }
 
-@media (max-width: 768px) {
-  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .contact-method { grid-template-columns: 1fr; gap: 0.25rem; padding: 1.25rem 0; }
-  .contact-method-arrow { display: none; }
-}
+        /* KEAHLIAN */
+        .skills {
+            background: white;
+        }
 
-/* FOOTER */
-footer { border-top: 1px solid var(--line); padding: 3rem 2rem; }
-.footer-inner { max-width: var(--container); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-.footer-inner span { font-family: 'Fira Code', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--text-mute); }
-.footer-inner a { color: var(--text-soft); text-decoration: none; transition: color 300ms; }
-.footer-inner a:hover { color: var(--accent); }
+        .skill-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
 
-/* REVEAL UTILITY */
-.reveal { opacity: 0; transform: translateY(30px); transition: opacity 1000ms var(--ease-quiet), transform 1000ms var(--ease-quiet); }
-.reveal.is-in { opacity: 1; transform: none; }
+        .skill {
+            background: #f4f7f4;
+            padding: 20px;
+            text-align: center;
+            border-radius: 6px;
+            color: #444;
+            font-weight: 500;
+            border: 1px solid #e5e5e5;
+        }
 
-@media (max-width: 768px) {
-  section { padding: 5rem 1.5rem; }
-  .nav { padding: 1rem 1.5rem; }
-  .nav.scrolled { padding: 0.75rem 1.5rem; }
-}
+        /* PENGALAMAN */
+        .experience-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
 
-@media (prefers-reduced-motion: reduce) {
-  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
-  .caret { animation: none; opacity: 1; }
-  .portfolio-media img { clip-path: inset(0 0 0 0); transform: none; }
-}
-</style>
+        .experience-card {
+            background: white;
+            padding: 25px;
+            border-radius: 6px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+        }
+
+        .experience-card h3 {
+            margin-bottom: 8px;
+            color: #222;
+        }
+
+        .experience-card p {
+            color: #666;
+        }
+
+        /* ORGANISASI */
+        .organization-card {
+            background: white;
+            padding: 25px;
+            border-radius: 6px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+        }
+
+        .organization-card h3 {
+            color: #222;
+            margin-bottom: 8px;
+        }
+
+        .organization-card p {
+            color: #666;
+            margin: 4px 0;
+        }
+
+        /* KONTAK */
+        .contact {
+            background: #ffffff;
+        }
+
+        .contact-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .contact-item {
+            padding: 18px;
+            background: #f5f7f5;
+            border-radius: 6px;
+            border: 1px solid #e5e5e5;
+        }
+
+        .contact-item strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #222;
+        }
+
+        .contact-item a {
+            color: #2e7d32;
+            word-break: break-word;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 25px 20px;
+            background: #222;
+            color: #ddd;
+            font-size: 14px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-menu {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 60px 20px;
+            }
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            .profile-photo {
+                width: 190px;
+                height: 190px;
+            }
+
+            .skill-list {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .experience-list {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .hero-text h1 {
+                font-size: 30px;
+            }
+
+            .hero-text h2 {
+                font-size: 18px;
+            }
+
+            .skill-list {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 26px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<!-- NAVBAR — EDIT: nama logo di .nav-logo -->
-<nav class="nav" id="nav">
-  <a href="#home" class="nav-logo">
-    Aditya<span class="dot">.</span>Rahman
-    <span class="mono">— HUKUM</span>
-  </a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#home">Beranda</a></li>
-    <li><a href="#about">Tentang Saya</a></li>
-    <li><a href="#skills">Keahlian</a></li>
-    <li><a href="#portfolio">Portofolio</a></li>
-    <li><a href="#contact">Kontak</a></li>
-  </ul>
-  <button class="nav-hamburger" id="hamburger" aria-label="Buka menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+    <!-- NAVBAR -->
+    <nav>
+        <div class="nav-container">
 
-<!-- HERO — EDIT: nama, foto, deskripsi, daftar profesi (di <script>) -->
-<section class="hero" id="home">
-  <div class="hero-inner">
-    <div class="hero-text">
-      <div class="eyebrow">Portofolio Hukum · 2024</div>
-      <h1 class="hero-title">Aditya Rahman</h1>
-      <div class="hero-profession">
-        <span id="professionText"></span><span class="caret" id="caret"></span>
-      </div>
-      <p class="hero-description" id="heroDesc">
-        Lulusan Fakultas Hukum Universitas Indonesia yang lebih sering membaca
-        putusan pengadilan daripada menulis puisi. Bekerja di antara penyusunan
-        kontrak, riset yurisprudensi, dan pendampingan klien. Tertarik pada hukum
-        yang adil, kalimat yang cermat, dan argumen yang tidak buru-buru.
-      </p>
-      <a href="#portfolio" class="hero-cta" id="heroCta">
-        <span>Lihat Portofolio</span>
-        <span class="hero-cta-arrow">→</span>
-      </a>
-    </div>
-    <div class="hero-photo">
-      <img src="https://picsum.photos/seed/aditya-portrait-study-window/640/800" alt="Foto profil Aditya Rahman">
-      <div class="hero-photo-meta">
-        <span>JAKARTA · ID</span>
-        <span>S.H. · 2020</span>
-      </div>
-    </div>
-  </div>
-</section>
+            <div class="logo">
+                PORTOFOLIO
+            </div>
 
-<!-- TENTANG SAYA — EDIT: judul, paragraf, kutipan, biodata, currently -->
-<section id="about">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">01 — Tentang Saya</div>
-      <h2 class="section-title">Argumen yang ditulis baik-baik bisa menahan beban yang besar.</h2>
-    </div>
-    <div class="about-grid reveal" data-reveal>
-      <div class="about-left">
-        <p class="about-paragraph" style="--i:0">
-          Nama saya Aditya Rahman. Saya tumbuh di Bandung, dekat dengan gedung
-          pengadilan negeri yang lebih sering sepi daripada ramai. Dari sanalah
-          kebiasaan mengamati sidang lalu menulis catatan mulai — saya belajar
-          bahwa sebuah putusan yang ditulis dengan tenang bisa menjadi tempat
-          berlindung yang lebih kokoh daripada sebaliknya.
-        </p>
-        <p class="about-paragraph" style="--i:1">
-          Saat ini saya bekerja sebagai pengacara muda di sebuah firma hukum kecil
-          di Jakarta. Saya menyusun kontrak, meriset yurisprudensi, dan kadang
-          membantu klien memahami surat gugatan yang mereka terima. Pekerjaan
-          saya berat di satu hal: menjaga agar apa pun yang saya tulis tidak
-          kehilangan napasnya sendiri.
-        </p>
-        <blockquote class="pull-quote" style="--i:2">
-          <p>"Saya tidak menulis cepat. Saya menulis dengan sengaja, dan kejelasan datang sebagai akibat."</p>
-          <cite>— Catatan pribadi, Maret 2023</cite>
-        </blockquote>
-        <p class="about-paragraph" style="--i:3">
-          Di luar pekerjaan, saya menulis catatan kasus yang tidak akan pernah
-          dipublikasikan, mengarsipkan putusan-putusan menarik, dan menjaga buku
-          catatan kertas yang sudah berusia lima tahun. Saya tidak terburu-buru.
-          Saya percaya bahwa kecepatan tanpa kehati-hatian adalah cara paling mahal
-          untuk menyusun argumen.
-        </p>
-      </div>
-      <div class="about-right">
-        <dl class="about-bio">
-          <dt>Nama Lengkap</dt>
-          <dd>Aditya Rahman, S.H.</dd>
-          <dt>Lahir</dt>
-          <dd>Bandung, 22 September 1998</dd>
-          <dt>Domisili</dt>
-          <dd>Jakarta Selatan, Indonesia</dd>
-          <dt>Pendidikan</dt>
-          <dd>S1 Hukum, Universitas Indonesia (2020)</dd>
-          <dt>Bahasa</dt>
-          <dd>Indonesia (ibu), Inggris (aktif), Belanda (pasif)</dd>
-          <dt>Sertifikasi</dt>
-          <dd>Advokat (PERADI, 2021) · Mediator Bersertifikat (2023)</dd>
-          <dt>Status</dt>
-          <dd>Tersedia untuk konsultasi hukum lepas — Q3 2024</dd>
-        </dl>
-        <div class="currently">
-          <div class="currently-head">SEDANG BERJALAN</div>
-          <div class="currently-item">
-            <span class="currently-label">Membaca</span>
-            <span class="currently-value">"The Concept of Law" — H.L.A. Hart</span>
-          </div>
-          <div class="currently-item">
-            <span class="currently-label">Mengerjakan</span>
-            <span class="currently-value">Susun ulang template kontrak kerja sama</span>
-          </div>
-          <div class="currently-item">
-            <span class="currently-label">Belajar</span>
-            <span class="currently-value">Hukum arbitrase internasional (UNCITRAL)</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+            <ul class="nav-menu">
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#pendidikan">Pendidikan</a></li>
+                <li><a href="#keahlian">Keahlian</a></li>
+                <li><a href="#pengalaman">Pengalaman</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
 
-<!-- KEAHLIAN — EDIT: duplikasi .skills-block untuk tambah kategori, <li> untuk tambah skill -->
-<section id="skills">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">02 — Keahlian</div>
-      <h2 class="section-title">Bidang yang saya kerjakan, dan berapa lama saya menekuninya.</h2>
-      <p class="section-lede">
-        Daftar di bawah tidak lengkap. Saya hanya menampilkan yang paling sering
-        saya pakai dalam pekerjaan nyata dalam dua tahun terakhir.
-      </p>
-    </div>
-    <div class="skills-grid">
+        </div>
+    </nav>
 
-      <div class="skills-block reveal" data-reveal>
-        <div class="skills-block-head">
-          <span class="skills-block-num">01</span>
-          <h3 class="skills-block-title">Hukum Perdata & Kontrak</h3>
-          <span class="skills-block-note">Inti · harian</span>
-        </div>
-        <ul class="skills-list">
-          <li><span class="skill-name">Drafting Kontrak Komersial</span><span class="skill-years">3 TAHUN</span></li>
-          <li><span class="skill-name">Review MoU & Perjanjian</span><span class="skill-years">3 TAHUN</span></li>
-          <li><span class="skill-name">Hukum Pertanahan & Properti</span><span class="skill-years">2 TAHUN</span></li>
-          <li><span class="skill-name">Hukum Korporasi & PT</span><span class="skill-years">2 TAHUN</span></li>
-          <li><span class="skill-name">Due Diligence Akuisisi</span><span class="skill-years">2 TAHUN</span></li>
-        </ul>
-      </div>
 
-      <div class="skills-block reveal" data-reveal>
-        <div class="skills-block-head">
-          <span class="skills-block-num">02</span>
-          <h3 class="skills-block-title">Litigasi & Persidangan</h3>
-          <span class="skills-block-note">Pendampingan · teratur</span>
-        </div>
-        <ul class="skills-list">
-          <li><span class="skill-name">Persiapan Sidang Perdata</span><span class="skill-years">2 TAHUN</span></li>
-          <li><span class="skill-name">Penyusunan Gugatan & Jawaban</span><span class="skill-years">2 TAHUN</span></li>
-          <li><span class="skill-name">Penyusunan Pleidoi</span><span class="skill-years">2 TAHUN</span></li>
-          <li><span class="skill-name">Pendampingan Mediasi</span><span class="skill-years">3 TAHUN</span></li>
-        </ul>
-      </div>
+    <!-- PROFIL -->
+    <header class="hero">
 
-      <div class="skills-block reveal" data-reveal>
-        <div class="skills-block-head">
-          <span class="skills-block-num">03</span>
-          <h3 class="skills-block-title">Penelitian & Penulisan Hukum</h3>
-          <span class="skills-block-note">Akhir-akhir ini</span>
-        </div>
-        <ul class="skills-list">
-          <li><span class="skill-name">Riset Yurisprudensi</span><span class="skill-years">4 TAHUN</span></li>
-          <li><span class="skill-name">Legal Opinion</span><span class="skill-years">3 TAHUN</span></li>
-          <li><span class="skill-name">Makalah & Artikel Hukum</span><span class="skill-years">5 TAHUN</span></li>
-          <li><span class="skill-name">Newsletter Hukum Bulanan</span><span class="skill-years">2 TAHUN</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+        <div class="hero-text">
 
-<!-- PORTOFOLIO — EDIT: duplikasi <a class="portfolio-card"> untuk tambah proyek -->
-<section id="portfolio">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">03 — Proyek Terpilih</div>
-      <h2 class="section-title">Beberapa pekerjaan yang masih saya pikirkan baik-baik.</h2>
-      <p class="section-lede">
-        Saya hanya menampilkan pekerjaan yang masih relevan dengan cara saya
-        bekerja hari ini. Yang sudah saya anggap selesai dan tidak lagi mewakili
-        saya, saya simpan di arsip.
-      </p>
-    </div>
-    <div class="portfolio-grid reveal" data-reveal>
+            <span>HALO, SAYA</span>
 
-      <a href="#" class="portfolio-card" style="--i:0">
-        <div class="portfolio-media">
-          <img src="https://picsum.photos/seed/portfolio-putusan-ma-wanprestasi/800/600" alt="Analisis Putusan MA">
-        </div>
-        <div class="portfolio-meta">
-          <span>2024 · Litigasi</span>
-          <span class="accent">Analisis Putusan</span>
-        </div>
-        <h3 class="portfolio-title">Analisis Putusan MA No. 651 K/Pdt/2023</h3>
-        <p class="portfolio-desc">
-          Analisis menyeluruh atas putusan Mahkamah Agung tentang wanprestasi
-          kontrak jasa konstruksi. Disusun sebagai bahan rujukan internal firma,
-          14 halaman, lima kali revisi.
-        </p>
-        <span class="portfolio-link">Baca Ringkasan<span>→</span></span>
-      </a>
+            <!-- GANTI NAMA -->
+            <h1>Rifky Kawit Wicaksono</h1>
 
-      <a href="#" class="portfolio-card" style="--i:1">
-        <div class="portfolio-media">
-          <img src="https://picsum.photos/seed/portfolio-brief-sengketa-tanah/800/600" alt="Brief Hukum Sengketa Tanah">
-        </div>
-        <div class="portfolio-meta">
-          <span>2023 · Litigasi</span>
-          <span class="accent">Legal Brief</span>
-        </div>
-        <h3 class="portfolio-title">Brief Hukum Sengketa Tanah Warisan</h3>
-        <p class="portfolio-desc">
-          Legal brief untuk kasus sengketa hak milik atas tanah warisan di Jawa
-          Barat. Saya menyusun kerangka argumen, riset yurisprudensi 1998–2023,
-          dan draft jawaban atas eksepsi penggugat.
-        </p>
-        <span class="portfolio-link">Lihat Detail<span>→</span></span>
-      </a>
+            <h2>Mahasiswa Pertanian</h2>
 
-      <a href="#" class="portfolio-card" style="--i:2">
-        <div class="portfolio-media">
-          <img src="https://picsum.photos/seed/portfolio-kontrak-lisensi-merek/800/600" alt="Kontrak Lisensi Merek">
-        </div>
-        <div class="portfolio-meta">
-          <span>2023 · Perdata</span>
-          <span class="accent">Drafting Kontrak</span>
-        </div>
-        <h3 class="portfolio-title">Kontrak Kerja Sama Lisensi Merek</h3>
-        <p class="portfolio-desc">
-          Penyusunan dan review kontrak kerja sama lisensi merek antar-perusahaan.
-          24 halaman, 18 klausul, empat kali revisi sampai kedua pihak merasa aman
-          menandatangani.
-        </p>
-        <span class="portfolio-link">Lihat Detail<span>→</span></span>
-      </a>
+            <div class="hero-info">
+                <!-- GANTI DATA -->
+                <p><strong>Domisili:</strong> Cilacap, Jawa Tengah</p>
+                <p><strong>Email:</strong> rifkykawitwicaksono@gmail.com</p>
+                <p><strong></strong> </p>
+            </div>
 
-      <a href="#" class="portfolio-card" style="--i:3">
-        <div class="portfolio-media">
-          <img src="https://picsum.photos/seed/portfolio-mediasi-klaim-asuransi/800/600" alt="Pendampingan Klaim Asuransi">
-        </div>
-        <div class="portfolio-meta">
-          <span>2022 · Mediasi</span>
-          <span class="accent">Pendampingan Klien</span>
-        </div>
-        <h3 class="portfolio-title">Pendampingan Klaim Asuransi</h3>
-        <p class="portfolio-desc">
-          Pendampingan klien untuk penyelesaian klaim asuransi yang tertunda lebih
-          dari delapan bulan. Diselesaikan lewat mediasi tanpa harus lanjut ke
-          sidang pengadilan.
-        </p>
-        <span class="portfolio-link">Lihat Detail<span>→</span></span>
-      </a>
+            <a href="#kontak" class="button">
+                Hubungi Saya
+            </a>
 
-      <a href="#" class="portfolio-card" style="--i:4">
-        <div class="portfolio-media">
-          <img src="https://picsum.photos/seed/portfolio-buku-saku-hukum-warga/800/600" alt="Buku Saku Hukum Sehari-hari">
         </div>
-        <div class="portfolio-meta">
-          <span>2022 · Edukasi</span>
-          <span class="accent">Cetak</span>
-        </div>
-        <h3 class="portfolio-title">Buku Saku Hukum Sehari-hari</h3>
-        <p class="portfolio-desc">
-          Buku tipis 56 halaman tentang hak-hak dasar warga dalam situasi
-          sehari-hari: tilang, kepemilikan, sengketa tetangga, kerja bakti RT.
-          Dicetak sendiri, dibagikan gratis ke 22 kelurahan di Bandung.
-        </p>
-        <span class="portfolio-link">Unduh PDF<span>→</span></span>
-      </a>
 
-      <a href="#" class="portfolio-card" style="--i:5">
-        <div class="portfolio-media">
-          <img src="https://picsum.photos/seed/portfolio-newsletter-hukum-bulanan/800/600" alt="Newsletter Hukum Bulanan">
-        </div>
-        <div class="portfolio-meta">
-          <span>2021 · Newsletter</span>
-          <span class="accent">Tulisan</span>
-        </div>
-        <h3 class="portfolio-title">Warta Hukum Bulanan</h3>
-        <p class="portfolio-desc">
-          Newsletter bulanan tentang putusan penting, regulasi baru, dan
-          kasus-kasus kecil yang menarik. 850 pelanggan. Saya menulis, menata,
-          dan mengirim sendiri — tidak ada iklan, tidak ada sponsor, hanya pembaca.
-        </p>
-        <span class="portfolio-link">Berlangganan<span>→</span></span>
-      </a>
 
-    </div>
-  </div>
-</section>
+        <!--
+            GANTI "foto-profil.jpg"
+            dengan nama file foto kamu.
+            
+            Contoh:
+            <img src="foto.jpg" ...>
+        -->
 
-<!-- KONTAK — EDIT: href dan value di setiap .contact-method -->
-<section id="contact">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">04 — Kontak</div>
-      <h2 class="section-title">Surel adalah cara paling tenang untuk menghubungi saya.</h2>
-      <p class="section-lede">
-        Saya membaca setiap pesan. Saya biasanya membalas dalam 48 jam. Jika
-        kasusnya memerlukan pertemuan langsung, saya akan mengusulkan jadwal
-        konsultasi di kantor.
-      </p>
-    </div>
-    <div class="contact-grid">
-      <div class="contact-methods">
-        <a href="mailto:halo@adityarahman.id" class="contact-method">
-          <span class="contact-method-label">Surel</span>
-          <span class="contact-method-value">halo@adityarahman.id</span>
-          <span class="contact-method-arrow">→</span>
-        </a>
-        <a href="#" class="contact-method">
-          <span class="contact-method-label">LinkedIn</span>
-          <span class="contact-method-value">in/adityarahman</span>
-          <span class="contact-method-arrow">→</span>
-        </a>
-        <a href="#" class="contact-method">
-          <span class="contact-method-label">Instagram</span>
-          <span class="contact-method-value">@aditya.catatan.hukum</span>
-          <span class="contact-method-arrow">→</span>
-        </a>
-        <a href="#" class="contact-method">
-          <span class="contact-method-label">Telegram</span>
-          <span class="contact-method-value">@adityarahman</span>
-          <span class="contact-method-arrow">→</span>
-        </a>
-        <a href="#" class="contact-method">
-          <span class="contact-method-label">Kantor</span>
-          <span class="contact-method-value">Jakarta Selatan, 12190</span>
-          <span class="contact-method-arrow">→</span>
-        </a>
-      </div>
-      <div class="contact-aside">
+        <img
+            src=https://i.ibb.co.com/TQDkvn1/1712386372042.jpg
+            alt=https://i.ibb.co.com/TQDkvn1/1712386372042.jpg
+            class="profile-photo"
+        >
+
+    </header>
+
+
+    <!-- TENTANG SAYA -->
+    <section id="tentang" class="about">
+
+        <div class="section-container">
+
+            <div class="section-title">
+                <h2>Tentang Saya</h2>
+                <p>Profil singkat</p>
+            </div>
+
+            <div class="about-text">
+
+                <p>
+                    Mahasiswa bidang pertanian dengan latar belakang pendidikan
+                    SMK Pertanian dan saat ini melanjutkan pendidikan di bidang
+                    Agroteknologi. Memiliki ketertarikan pada budidaya tanaman,
+                    pengelolaan lahan, serta penerapan ilmu pertanian secara
+                    praktis dan berkelanjutan.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PENDIDIKAN -->
+    <section id="pendidikan">
+
+        <div class="section-container">
+
+            <div class="section-title">
+                <h2>Pendidikan</h2>
+                <p>Riwayat pendidikan</p>
+            </div>
+
+            <div class="education-card">
+
+                <h3>Universitas Ma'arif Nahdlatul Ulama Kebumen</h3>
+
+                <p>
+                    <strong>Program Studi:</strong> Agroteknologi
+                </p>
+
+                <p>
+                    <strong>Status:</strong> Mahasiswa
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- KEAHLIAN -->
+    <section id="keahlian" class="skills">
+
+        <div class="section-container">
+
+            <div class="section-title">
+                <h2>Keahlian</h2>
+                <p>Kompetensi yang saya miliki</p>
+            </div>
+
+            <div class="skill-list">
+
+                <div class="skill">
+                    Budidaya Tanaman
+                </div>
+
+                <div class="skill">
+                    Pengelolaan Lahan
+                </div>
+
+                <div class="skill">
+                    Pengamatan Tanaman
+                </div>
+
+                <div class="skill">
+                    Pengolahan Data
+                </div>
+
+                <div class="skill">
+                    Microsoft Office
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ORGANISASI -->
+    <section id="organisasi">
+
+        <div class="section-container">
+
+            <div class="section-title">
+                <h2>Pengalaman Organisasi</h2>
+                <p>Kegiatan organisasi</p>
+            </div>
+
+            <div class="organization-card">
+
+                <!-- GANTI DATA DI BAWAH -->
+
+                <h3>Himpunan Mahasiswa Agroteknologi</h3>
+
+                <p>
+                    <strong>Jabatan:</strong> Anggota
+                </p>
+
+                <p>
+                    <strong>Periode:</strong> 2024 - 2025
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PENGALAMAN -->
+    <section id="pengalaman">
+
+        <div class="section-container">
+
+            <div class="section-title">
+                <h2>Pengalaman</h2>
+                <p>Kegiatan dan pengalaman yang pernah dilakukan</p>
+            </div>
+
+            <div class="experience-list">
+
+                <div class="experience-card">
+
+                    <h3>Praktikum</h3>
+
+                    <p>
+                        Memiliki pengalaman praktikum secara langsung dalam hal budidaya tanaman, pembuatan pupuk, pengoperasian alsintan, dan implementasi Pengendalian Hama Terpadu (PHT).
+                    </p>
+
+                </div>
+
+
+                <div class="experience-card">
+
+                    <h3>Kegiatan Lapangan</h3>
+
+                    <p>
+                       Kuliah Kerja Nyata (KKN) Pemberdayaan Masyarakat Mengabdi di desa untuk mengidentifikasi permasalahan setempat dan berkolaborasi dengan warga mencari solusi demi kemajuan bersama.
+                    </p>
+
+                </div>
+
+
+                <div class="experience-card">
+
+                    <h3>Magang</h3>
+
+                    <p>
+                        Peserta Magang di KS24 Hidroponik (Jun - Agust 2025) Membantu Budidaya Hidroponik.
+                    </p>
+                    
+                    <p>
+                        Mahasiswa PKL di PT.Tunas Agro Persada (Jan - Feb 2026) Berpartisipasi aktif dalam kegiatan operasional lapangan, khususnya pada pemeliharaan dan budidaya tanaman komersial melon.
+                    </p>
+
+                </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- KONTAK -->
+    <section id="kontak" class="contact">
+
+        <div class="section-container">
+
+            <div class="section-title">
+                <h2>Kontak</h2>
+                <p>Hubungi saya melalui</p>
+            </div>
+
+            <div class="contact-list">
+
+                <div class="contact-item">
+
+                    <strong>Email</strong>
+
+                    <a href="mailto:rifkykawitwicaksono@gmail.com">
+                        rifkykawitwicaksono@gmail.com
+                    </a>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <strong>WhatsApp</strong>
+
+                    <!-- GANTI NOMOR -->
+                    <a
+                        href="https://wa.me/6282134061918"
+                        target="_blank"
+                    >
+                        082134061918
+                    </a>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <strong>Instagram</strong>
+
+                    <!-- GANTI USERNAME -->
+                    <a
+                        href="https://instagram.com/rifkykawitwicaksono"
+                        target="_blank"
+                    >
+                        @rifkykawitwicaksono
+                    </a>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <strong>LinkedIn</strong>
+
+                    <!-- GANTI LINK -->
+                    <a
+                        href="https://www.linkedin.com/in/rifkykawitwicaksono"
+                        target="_blank"
+                    >
+                        rifkykawitwicaksono
+                    </a>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <strong>GitHub</strong>
+
+                    <!-- GANTI USERNAME -->
+                    <a
+                        href="https://github.com/rifkykawitwicaksono"
+                        target="_blank"
+                    >
+                        github.com/rifkykawitwicaksono
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
         <p>
-          Saya menerima konsultasi lepas untuk drafting kontrak, review perjanjian,
-          dan pendampingan mediasi. Saya tidak menerima perkara pidana berat dan
-          kasus yang berpotensi konflik kepentingan dengan firma tempat saya bekerja.
+            © 2026 Rifky Kawit Wicaksono. All Rights Reserved.
         </p>
-        <p>
-          Untuk hal lain — undangan menulis makalah, diskusi hukum, atau sekadar
-          berbagi referensi putusan — silakan tulis tanpa ragu. Saya selalu punya
-          waktu untuk percakapan yang lambat.
-        </p>
-        <p class="signature">— Aditya R.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- FOOTER — EDIT: nama, tahun -->
-<footer>
-  <div class="footer-inner">
-    <span>© 2024 Aditya Rahman, S.H.</span>
-    <span>Dibuat dengan HTML, CSS, dan JavaScript murni.</span>
-    <span><a href="#home">Kembali ke atas ↑</a></span>
-  </div>
-</footer>
+    </footer>
 
-<!-- ============================================
-     JS — untuk pisah ke script.js:
-     cut isi <script> di bawah, paste ke script.js,
-     ganti tag ini jadi: <script src="script.js" defer></script>
-     ============================================ -->
-<script>
-/* 1. NAVBAR — scroll state + hamburger */
-const nav = document.getElementById('nav');
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('navLinks');
-
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 20) nav.classList.add('scrolled');
-  else nav.classList.remove('scrolled');
-}, { passive: true });
-
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('open');
-  navLinks.classList.toggle('open');
-});
-
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    hamburger.classList.remove('open');
-    navLinks.classList.remove('open');
-  });
-});
-
-/* 2. REVEAL ON SCROLL — IntersectionObserver */
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('is-in');
-      io.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-
-document.querySelectorAll('.reveal, .section-head, #home').forEach(el => {
-  io.observe(el);
-});
-
-/* 3. SIBLING STAGGER — set --i otomatis */
-document.querySelectorAll('.about-paragraph').forEach((el, i) => {
-  el.style.setProperty('--i', i);
-});
-document.querySelectorAll('.portfolio-card').forEach((el, i) => {
-  el.style.setProperty('--i', i);
-});
-
-/* 4. TYPEWRITER HERO PROFESSION
-   EDIT di sini: ganti array PROFESSIONS untuk
-   mengubah daftar profesi yang diketik bergantian. */
-const professionText = document.getElementById('professionText');
-const caret = document.getElementById('caret');
-const heroDesc = document.getElementById('heroDesc');
-const heroCta = document.getElementById('heroCta');
-
-const PROFESSIONS = [
-  'Pengacara Muda',
-  'Penyusun Kontrak',
-  'Peneliti Hukum',
-  'Pembaca Putusan'
-];
-
-const TYPE_DELAY = 65;
-const ERASE_DELAY = 35;
-const HOLD_DELAY = 2000;
-
-let profIndex = 0;
-let typingActive = true;
-
-function typeWord(word, done) {
-  let i = 0;
-  const interval = setInterval(() => {
-    if (!typingActive) { clearInterval(interval); return; }
-    professionText.textContent = word.slice(0, i + 1);
-    i++;
-    if (i >= word.length) {
-      clearInterval(interval);
-      setTimeout(done, HOLD_DELAY);
-    }
-  }, TYPE_DELAY);
-}
-
-function eraseWord(done) {
-  let current = professionText.textContent;
-  let i = current.length;
-  const interval = setInterval(() => {
-    if (!typingActive) { clearInterval(interval); return; }
-    professionText.textContent = current.slice(0, i - 1);
-    i--;
-    if (i <= 0) {
-      clearInterval(interval);
-      done();
-    }
-  }, ERASE_DELAY);
-}
-
-function startTypewriter() {
-  const word = PROFESSIONS[profIndex % PROFESSIONS.length];
-  professionText.textContent = '';
-  typeWord(word, () => {
-    eraseWord(() => {
-      profIndex++;
-      startTypewriter();
-    });
-  });
-}
-
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-if (prefersReducedMotion) {
-  professionText.textContent = PROFESSIONS[0];
-  caret.classList.add('is-hidden');
-  heroDesc.classList.add('is-shown');
-  heroCta.classList.add('is-shown');
-} else {
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      startTypewriter();
-      setTimeout(() => {
-        heroDesc.classList.add('is-shown');
-        heroCta.classList.add('is-shown');
-      }, 1400);
-    }, 400);
-  });
-  document.addEventListener('visibilitychange', () => {
-    typingActive = !document.hidden;
-  });
-}
-
-/* 5. SMOOTH SCROLL untuk anchor */
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const href = a.getAttribute('href');
-    if (href === '#') return;
-    const target = document.querySelector(href);
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
-  });
-});
-</script>
 </body>
 </html>
